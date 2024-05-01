@@ -1,0 +1,44 @@
+create 
+(Andre:FUNCIONARIO{nome:"Andre Takado"}),
+(Bruna:FUNCIONARIO{nome:"Bruna Tanaka"}),
+(Carlos:FUNCIONARIO{nome:"Carlos Yamagoci"}),
+(Marcos:FUNCIONARIO{nome:"Marcos Yamaha"}),
+(Yumi:FUNCIONARIO{nome:"Yumi Takay"}),
+
+(Adm:FORMACAO{nome: "Administração"}),
+(Sist:FORMACAO{nome: "Sistemas da Informação"}),
+(Rede:FORMACAO{nome: "Redes de Comunicação"}),
+(Arq:FORMACAO{nome: "Arquitetura"}),
+(Psi:FORMACAO{nome: "Psicologia"}),
+
+
+(Aceleracao:PROJETO{nome: "Aceleracao Digital"}),
+(Inova:PROJETO{nome: "Inovação"}),
+(Voce:PROJETO{nome: "Você na Empresa"}),
+
+(Dev:EQUIPE{nome: "Desenvolvedores"}),
+(Eng:EQUIPE{nome: "Engenheiros"}),
+(Back:EQUIPE{nome: "Backend"}),
+(Front:EQUIPE{nome: "Frontend"}),
+(Ci:EQUIPE{nome: "Cientistas"}),
+
+(Andre)-[:É_COLEGA]-> (Bruna),
+(Andre)<-[:É_COLEGA]- (Bruna),
+(Carlos)-[:É_COLEGA]-> (Marcos),
+(Carlos)<-[:É_COLEGA]- (Marcos),
+
+
+(Andre)-[:PERTENCE]-> (Desenvolvedores),
+(Bruna)-[:PERTENCE]-> (Desenvolvedores),
+(Carlos)-[:PERTENCE]-> (Backend),
+(Marcos)-[:PERTENCE]-> (Frontend),
+(Yumi)-[:PERTENCE]-> (Cientistas),
+
+
+(Andre)-[:TRABALHOU {projetos: 1}]-> (Inova),
+(Bruna)-[:TRABALHOU {projetos: 2}]-> (Aceleracao),
+(Marcos)-[:TRABALHOU {projetos: 5}]-> (Voce),
+
+(Andre)-[:TEM_FILHOS{filhos: 1}]-> (Yumi),
+(Andre)-[:TEM_FILHOS{filhos: 2}]-> (Bruna),
+(Marcos)-[:TEM_FILHOS{filhos: 3}]-> (Carlos);
